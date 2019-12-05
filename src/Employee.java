@@ -21,6 +21,10 @@ public class Employee {  // begin class
         private int ID = 0;                                                     // unique ID
         private int hours = 0;                                                  // weekly worked hours
         private double wage = 0.0;                                              // hourly wage
+        
+        double payREG = 0.0;                                                    // regular pay
+        double payOT = 0.0;                                                     // overtime pay
+        double payGROSS = 0.0;                                                  // gross pay
             	
     // ********** Constructors **********
         
@@ -103,6 +107,65 @@ public class Employee {  // begin class
         public double getWage(){ // begin getter
             
             return this.wage;                                                   // return hourly wage
+            
+        } // end getter
+        
+        /***********************************************************
+        * Description: Get employee's regular pay
+        * 
+        * Interface:
+        * 
+        * @param
+        * 
+        * @return   payREG: double
+        ***********************************************************/
+        public double getREG(){ // begin getter
+          
+            if(hours <= 40){ // begin if
+                
+                payREG = hours * wage;
+                
+            } // end if
+            
+            return this.payREG;                                                 // return regular pay
+            
+        } // end getter
+        
+        /***********************************************************
+        * Description: Get employee's overtime pay
+        * 
+        * Interface:
+        * 
+        * @param
+        * 
+        * @return   payOT: double
+        ***********************************************************/
+        public double getOT(){ // begin getter
+          
+            if(hours > 40){ // begin if
+                
+                payOT = (hours - 40) * (wage * 1.5);
+                
+            } // end if
+            
+            return this.payOT;                                                  // return overtime pay
+            
+        } // end getter
+        
+        /***********************************************************
+        * Description: Get employee's gross pay
+        * 
+        * Interface:
+        * 
+        * @param
+        * 
+        * @return   payGROSS: double
+        ***********************************************************/
+        public double getGROSS(){ // begin getter
+          
+            payGROSS = payREG + payOT;
+            
+            return this.payGROSS;                                               // return gross pay
             
         } // end getter
 	    	

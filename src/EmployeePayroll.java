@@ -21,6 +21,8 @@ public class EmployeePayroll {  // begin class
     
     // ********** Declaration of Constants **********
     
+        int MAXSIZE = 6;
+    
     // ********** Declaration of Variables **********
 
         String strin = "";                                                      // string data input from keyboard
@@ -34,13 +36,21 @@ public class EmployeePayroll {  // begin class
         
         String info = "December Exam";                                          // assignment information
         String nl = System.lineSeparator();                                     // new line character for file writing
+        
+        Employee staff[] = new Employee[MAXSIZE];                               // array of employees
+        int actualSize = 0;                                                     // actual size of array
+        
+        int length = 0;                                                         // length of tokens
+        
+        int hours = 0;                                                          // hours worked
+        int wage = 0;                                                           // hourly wage
             	
     // ********** Create Objects **********
     
         //Scanner scanner = new Scanner(System.in);
         //DecimalFormat df1 = new DecimalFormat("##.###");
         
-        //BufferedReader fin = new BufferedReader(new FileReader("demo1Data.txt"));
+        BufferedReader fin = new BufferedReader(new FileReader("employeeData.txt"));
         PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
     	
     // ********** Print Output Banner **********
@@ -52,6 +62,17 @@ public class EmployeePayroll {  // begin class
     
         //prompt = "Enter your prompt text here";
         //strin = JOptionPane.showInputDialog(bannerOut + prompt);
+        
+        strin = fin.readLine();
+        
+        while(strin != null){ // begin while
+            
+            tokens = strin.split(delim);
+            length = tokens.length;
+            
+            strin = fin.readLine();
+            
+        } // end while
 
     // ********** Processing **********
 
@@ -63,7 +84,7 @@ public class EmployeePayroll {  // begin class
         
     // ********** Close Streams **********
         
-        //fin.close();                                                          // close input buffer stream
+        fin.close();                                                            // close input buffer stream
         fout.close();                                                           // close output stream
         
     }  // end main
