@@ -45,8 +45,8 @@ public class EmployeePayroll {  // begin class
     	
     // ********** Print Output Banner **********
 
-        printBanner(info);                                                      // call printBanner method
-        fileBanner(fout, info);                                                 // call fileBanner method
+        ProgramInfo.printBanner(info);                                          // call printBanner method
+        ProgramInfo.fileBanner(fout, info);                                     // call fileBanner method
 	    	
     // ********** Get Input **********
     
@@ -59,7 +59,7 @@ public class EmployeePayroll {  // begin class
     
     // ********** Closing Message **********
         
-        closingMessage(fout);                                                   // call closingMessage method
+        ProgramInfo.closingMessage(fout, nl);                                   // call closingMessage method
         
     // ********** Close Streams **********
         
@@ -69,77 +69,5 @@ public class EmployeePayroll {  // begin class
     }  // end main
     
 // ********** Static Methods **********
-    
-    /***********************************************************
-    * Description: Create a banner string used to print to the
-    *              console
-    * 
-    * Interface:
-    * 
-    * @param    info
-    * 
-    * @return
-    ***********************************************************/
-    public static void printBanner(String info){ // begin class
-        System.out.println("*******************************************");
-        System.out.println("Name: Simrat Braha");
-        System.out.println("Class: CS30S");
-        System.out.println("Assignment: " + info);
-        System.out.println("*******************************************");
-    } // end class
-
-    /***********************************************************
-    * Description: Create a banner string used to print to a
-    *              message dialog or console window
-    * 
-    * Interface:
-    * 
-    * @param    info
-    * @param    nl
-    * 
-    * @return   outputBanner
-    ***********************************************************/
-    public static String outputBanner(String info, String nl){ // begin class
-        String outputBanner = "";
-        outputBanner = "*******************************************" + nl;
-        outputBanner += "Name: Simrat Braha" + nl;
-        outputBanner += "Class: CS30S" + nl;
-        outputBanner += "Assignment: " + info + nl;
-        outputBanner += "*******************************************" + nl + nl;
-        return outputBanner;
-    } // end class
-    
-    /***********************************************************
-    * Description: Print banner to output file
-    * 
-    * Interface:
-    * 
-    * @param    fout
-    * @param    info
-    * 
-    * @return  none
-    ***********************************************************/
-    public static void fileBanner(PrintWriter fout, String info){ // begin class
-     	fout.println("*******************************************");
-    	fout.println("Name: Simrat Braha");
-    	fout.println("Class: CS30S");
-    	fout.println("Assignment: " + info);
-    	fout.println("*******************************************");      
-    } // end class
-    
-    /***********************************************************
-    * Description: Print closing message to console and output
-    *              file
-    * 
-    * Interface:
-    * 
-    * @param fout
-    * 
-    * @return
-    ***********************************************************/
-    public static void closingMessage(PrintWriter fout){ // begin class
-        System.out.println("end of processing");
-        fout.println("end of processing");
-    } // end class
 
 }  // end class

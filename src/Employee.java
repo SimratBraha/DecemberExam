@@ -60,6 +60,41 @@ public class Employee {  // begin class
         } // end constructor
     	
     // ********** Getters **********
+        
+        /***********************************************************
+        * Description: Get employee's unique ID
+        * 
+        * Interface:
+        * 
+        * @param
+        * 
+        * @return   ID: int
+        ***********************************************************/
+        public int getID(){ // begin getter
+            
+            
+            
+        } // end getter
+        
+        /***********************************************************
+        * Description: Get employee's hours worked
+        * 
+        * Interface:
+        * 
+        * @param
+        * 
+        * @return   hours: int
+        ***********************************************************/
+        
+        /***********************************************************
+        * Description: Get employee's hourly wage
+        * 
+        * Interface:
+        * 
+        * @param
+        * 
+        * @return   wage: double
+        ***********************************************************/
 	    	
     // ********** Setters **********
 
