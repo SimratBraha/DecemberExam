@@ -18,11 +18,46 @@ public class Employee {  // begin class
     
     // ********** Instance Variables **********
         
-        private int ID = 0;                                                     // unique ID of employee
+        private int ID = 0;                                                     // unique ID
         private int hours = 0;                                                  // weekly worked hours
-        private double wage = 0.0;                                              // hourly wage of employee
+        private double wage = 0.0;                                              // hourly wage
             	
     // ********** Constructors **********
+        
+        /***********************************************************
+        * Description: Create a new Employee object
+        * 
+        * Interface:
+        * 
+        * @param    
+        * 
+        * @return
+        ***********************************************************/
+        public Employee(){ // begin constructor
+            
+            ID = nextID++;                                                      // set and increment ID
+            hours = 0;                                                          // weekly worked hours
+            wage = 0.0;                                                         // hourly wage
+            
+        } // end constructor
+        
+        /***********************************************************
+        * Description: Create a new Employee object
+        * 
+        * Interface:
+        * 
+        * @param    h: int
+        * @param    w: double
+        * 
+        * @return
+        ***********************************************************/
+        public Employee(int h, double w){ // begin constructor
+            
+            ID = nextID++;                                                      // set and increment ID
+            hours = h;                                                          // weekly worked hours
+            wage = w;                                                           // hourly wage
+            
+        } // end constructor
     	
     // ********** Getters **********
 	    	
