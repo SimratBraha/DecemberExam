@@ -168,10 +168,30 @@ public class Employee {  // begin class
             return this.payGROSS;                                               // return gross pay
             
         } // end getter
+        
+        /***********************************************************
+        * Description: Get employee's regular pay
+        * 
+        * Interface:
+        * 
+        * @param
+        * 
+        * @return   data: String
+        ***********************************************************/
+        public String toString(){ // begin method
+            
+            String data = "";
+            
+            data += String.format("ID: %5d Hours: %3d Wage: %3.2f Regular Pay: %4.2 Overtime Pay: %4.2 Gross Pay: %4.2", getID(), getHours()
+            , getREG(), getOT(), getGROSS());
+            
+            return data;                                                        // return employee data
+            
+        } // end method
 	    	
     // ********** Setters **********
         
-         /***********************************************************
+        /***********************************************************
         * Description: Set a new value for employee's hours worked
         * 
         * Interface:
