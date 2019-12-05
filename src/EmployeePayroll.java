@@ -5,12 +5,11 @@
  * Assignment: December Exam
  * Program Name: EmployeePayroll
  *
- * Description: brief description of program
+ * Description: Employee client
  ***********************************************************************/
  
 // ********** Import Java Libraries **********
  
-    import javax.swing.*;
     import java.io.*;
     //import java.text.DecimalFormat;
     //import java.util.Scanner;
@@ -38,12 +37,6 @@ public class EmployeePayroll {  // begin class
         String nl = System.lineSeparator();                                     // new line character for file writing
         
         Employee staff[] = new Employee[MAXSIZE];                               // array of employees
-        int actualSize = 0;                                                     // actual size of array
-        
-        int length = 0;                                                         // length of tokens
-        
-        int hours = 0;                                                          // hours worked
-        int wage = 0;                                                           // hourly wage
             	
     // ********** Create Objects **********
     
@@ -61,32 +54,35 @@ public class EmployeePayroll {  // begin class
         ProgramInfo.fileBanner(fout, info);                                     // call fileBanner method
 	    	
     // ********** Get Input **********
+
+    // ********** Processing **********
     
-        //prompt = "Enter your prompt text here";
-        //strin = JOptionPane.showInputDialog(bannerOut + prompt);
-        
+        employee.setHours(50);                                                  // set employee hours worked
+        employee.setWage(15.00);                                                // set employee hourly wage
+
+        System.out.format("%-10s %-10s %-11s %-16s %-16s %-15s %s", "ID", "Hours", 
+                "Wage", "Regular Pay", "Overtime Pay", "Gross Pay", nl);
+        System.out.format(nl + "Additional Employee" + nl);
+        System.out.println(employee.toString() + nl);                           // call toString method
+    
         strin = fin.readLine();
         //System.out.println(strin);
         
         while(strin != null){ // begin while
             
-            tokens = strin.split(delim);
-            length = tokens.length;
-            //System.out.println(length);
+            int i = 0;                                                        
             
-            hours = Integer.parseInt(tokens[0]);
-            //wage = Double.parseDouble(tokens[1]);
+            tokens = strin.split(delim);                                        // split strin into tokens
+            
+            staff[i] = new Employee(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]));
+            
+            System.out.println(staff[i].toString());
+            
+            i++;
             
             strin = fin.readLine();
             
         } // end while
-        
-        employee.setHours(50);                                                  // set employee hours worked
-        employee.setWage(15.00);                                                // set employee hourly wage
-        
-        System.out.println(employee.toString());                                // call toString method
-
-    // ********** Processing **********    
 
     // ********** Print Output **********
 

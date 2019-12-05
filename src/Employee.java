@@ -5,7 +5,7 @@
  * Assignment: December Exam
  * Program Name: Employee
  *
- * Description: brief description of program
+ * Description: Create, give, and change properties of an employee object
  ***********************************************************************/
  
 // ********** Import Java Libraries **********
@@ -188,7 +188,7 @@ public class Employee {  // begin class
             
             String data = "";
             
-            data += String.format("ID: %-5d Hours: %-3d Wage: $%-3.2f Regular Pay: $%-4.2f Overtime Pay: $%-4.2f Gross Pay: $%-4.2f", getID(), 
+            data += String.format("%-10d %-10d $%-10.2f $%-15.2f $%-15.2f $%-15.2f", getID(), 
                     getHours(), getWage(), getREG(), getOT(), getGROSS());
             
             return data;                                                        // return employee data
