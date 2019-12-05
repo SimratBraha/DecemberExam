@@ -21,7 +21,7 @@ public class EmployeePayroll {  // begin class
     
     // ********** Declaration of Constants **********
     
-        int MAXSIZE = 6;
+        int MAXSIZE = 10;                                                       // max size of array
     
     // ********** Declaration of Variables **********
 
@@ -52,6 +52,8 @@ public class EmployeePayroll {  // begin class
         
         BufferedReader fin = new BufferedReader(new FileReader("employeeData.txt"));
         PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
+        
+        Employee employee = new Employee();                                     // create employee object
     	
     // ********** Print Output Banner **********
 
@@ -64,20 +66,30 @@ public class EmployeePayroll {  // begin class
         //strin = JOptionPane.showInputDialog(bannerOut + prompt);
         
         strin = fin.readLine();
+        //System.out.println(strin);
         
         while(strin != null){ // begin while
             
             tokens = strin.split(delim);
             length = tokens.length;
+            //System.out.println(length);
+            
+            hours = Integer.parseInt(tokens[0]);
+            //wage = Double.parseDouble(tokens[1]);
             
             strin = fin.readLine();
             
         } // end while
+        
+        employee.setHours(50);                                                  // set employee hours worked
+        employee.setWage(15.00);                                                // set employee hourly wage
+        
+        System.out.println(employee.toString());                                // call toString method
 
-    // ********** Processing **********
+    // ********** Processing **********    
 
     // ********** Print Output **********
-    
+
     // ********** Closing Message **********
         
         ProgramInfo.closingMessage(fout, nl);                                   // call closingMessage method

@@ -123,9 +123,15 @@ public class Employee {  // begin class
           
             if(hours <= 40){ // begin if
                 
-                payREG = hours * wage;
+                payREG = hours * wage;                                          // calculate regular pay
                 
             } // end if
+            
+            else{ // begin else
+                
+                payREG = (hours - (hours - 40)) * wage;                         // calculate regular pay
+                
+            } // end else
             
             return this.payREG;                                                 // return regular pay
             
@@ -144,7 +150,7 @@ public class Employee {  // begin class
           
             if(hours > 40){ // begin if
                 
-                payOT = (hours - 40) * (wage * 1.5);
+                payOT = (hours - 40) * (wage * 1.5);                            // calculate overtime pay
                 
             } // end if
             
@@ -163,7 +169,7 @@ public class Employee {  // begin class
         ***********************************************************/
         public double getGROSS(){ // begin getter
           
-            payGROSS = payREG + payOT;
+            payGROSS = payREG + payOT;                                          // calculate gross pay
             
             return this.payGROSS;                                               // return gross pay
             
@@ -182,8 +188,8 @@ public class Employee {  // begin class
             
             String data = "";
             
-            data += String.format("ID: %5d Hours: %3d Wage: %3.2f Regular Pay: %4.2 Overtime Pay: %4.2 Gross Pay: %4.2", getID(), getHours()
-            , getREG(), getOT(), getGROSS());
+            data += String.format("ID: %-5d Hours: %-3d Wage: $%-3.2f Regular Pay: $%-4.2f Overtime Pay: $%-4.2f Gross Pay: $%-4.2f", getID(), 
+                    getHours(), getWage(), getREG(), getOT(), getGROSS());
             
             return data;                                                        // return employee data
             
@@ -200,7 +206,7 @@ public class Employee {  // begin class
         * 
         * @return
         ***********************************************************/
-        public void setWage(int h){ // begin setter
+        public void setHours(int h){ // begin setter
             
             hours = h;                                                          // set new hours worked
             
