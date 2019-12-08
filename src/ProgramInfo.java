@@ -79,6 +79,7 @@ public class ProgramInfo {  // begin class
     * Interface:
     * 
     * @param fout
+    * @param nl
     * 
     * @return
     ***********************************************************/

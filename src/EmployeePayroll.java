@@ -5,7 +5,7 @@
  * Assignment: December Exam
  * Program Name: EmployeePayroll
  *
- * Description: Employee client
+ * Description: Employee client program for employee class
  ***********************************************************************/
  
 // ********** Import Java Libraries **********
@@ -21,6 +21,9 @@ public class EmployeePayroll {  // begin class
     // ********** Declaration of Constants **********
     
         int MAXSIZE = 10;                                                       // max size of array
+        
+        int EMPLOYEEHOURS = 50;                                                 // hours worked for additional employee
+        double EMPLOYEEWAGE = 15.00;                                            // hourly wage for additional employee 
     
     // ********** Declaration of Variables **********
 
@@ -36,7 +39,8 @@ public class EmployeePayroll {  // begin class
         String info = "December Exam";                                          // assignment information
         String nl = System.lineSeparator();                                     // new line character for file writing
         
-        Employee staff[] = new Employee[MAXSIZE];                               // array of employees
+        Employee staff[] = new Employee[MAXSIZE];                               // array of employee objects
+        int actualSize = 0;                                                     // actual size of array
             	
     // ********** Create Objects **********
     
@@ -46,7 +50,7 @@ public class EmployeePayroll {  // begin class
         BufferedReader fin = new BufferedReader(new FileReader("employeeData.txt"));
         PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
         
-        Employee employee = new Employee();                                     // create employee object
+        Employee employee = new Employee();                                     // create additinal employee object
     	
     // ********** Print Output Banner **********
 
@@ -57,30 +61,28 @@ public class EmployeePayroll {  // begin class
 
     // ********** Processing **********
     
-        employee.setHours(50);                                                  // set employee hours worked
-        employee.setWage(15.00);                                                // set employee hourly wage
+        employee.setHours(EMPLOYEEHOURS);                                       // set employee hours worked
+        employee.setWage(EMPLOYEEWAGE);                                         // set employee hourly wage
 
         System.out.format("%-10s %-10s %-11s %-16s %-16s %-15s %s", "ID", "Hours", 
                 "Wage", "Regular Pay", "Overtime Pay", "Gross Pay", nl);
         System.out.format(nl + "Additional Employee" + nl);
         System.out.println(employee.toString() + nl);                           // call toString method
     
-        strin = fin.readLine();
+        strin = fin.readLine();                                                 // read a line of data
         //System.out.println(strin);
         
-        while(strin != null){ // begin while
-            
-            int i = 0;                                                        
+        while(strin != null){ // begin while                                                     
             
             tokens = strin.split(delim);                                        // split strin into tokens
             
-            staff[i] = new Employee(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]));
+            staff[actualSize] = new Employee(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]));
             
-            System.out.println(staff[i].toString());
+            System.out.println(staff[actualSize].toString());                   // call toString method
             
-            i++;
+            actualSize++;                                                       // increment actual size of array
             
-            strin = fin.readLine();
+            strin = fin.readLine();                                             // read a line of data
             
         } // end while
 
